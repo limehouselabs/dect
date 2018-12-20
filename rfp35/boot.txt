@@ -1,0 +1,292 @@
+U-Boot 2011.12-svn18355 (Jan 02 2013 - 16:44:25)RFP43
+
+SoC:   Kirkwood 88F6281_A1
+DRAM:  128 MiB
+WARNING: Caches not enabled
+NAND:  128 MiB
+In:    serial
+Out:   serial
+Err:   serial
+
+Kirkwood Boot Rom Result: Reg = 0xaf001000, ErrCode = 0x00, Retry Count = 0.
+Kirkwood NAND Control:    Reg = 0x01c7d943
+Kirkwood NAND Read:       Reg = 0x003e07cf
+Kirkwood NAND Write:      Reg = 0x000f0f0f
+
+Net:   egiga0, egiga1
+PHY 88E1318 initialized on egiga0
+PHY 88E3019 initialized on egiga1
+
+autoboot in 3 seconds
+
+==== booting from USB (failsafe) ====
+(Re)start USB...
+USB:   Register 10011 NbrPorts 1
+USB EHCI 1.00
+scanning bus for devices... 1 USB Device(s) found
+       scanning bus for storage devices... 0 Storage Device(s) found
+
+** Invalid boot device **
+==== booting from UBI ====
+Creating 1 MTD partitions on "nand0":
+0x000000100000-0x000004100000 : "mtd=3"
+UBI: attaching mtd1 to ubi0
+UBI: physical eraseblock size:   131072 bytes (128 KiB)
+UBI: logical eraseblock size:    129024 bytes
+UBI: smallest flash I/O unit:    2048
+UBI: sub-page size:              512
+UBI: VID header offset:          512 (aligned 512)
+UBI: data offset:                2048
+UBI: attached mtd1 to ubi0
+UBI: MTD device name:            "mtd=3"
+UBI: MTD device size:            64 MiB
+UBI: number of good PEBs:        512
+UBI: number of bad PEBs:         0
+UBI: max. allowed volumes:       128
+UBI: wear-leveling threshold:    4096
+UBI: number of internal volumes: 1
+UBI: number of user volumes:     1
+UBI: available PEBs:             0
+UBI: total number of reserved PEBs: 512
+UBI: number of PEBs reserved for bad PEB handling: 5
+UBI: max/mean erase counter: 4/1
+UBIFS: recovery needed
+UBIFS: recovery deferred
+UBIFS: mounted UBI device 0, volume 0, name "flash"
+UBIFS: mounted read-only
+UBIFS: file system size:   63737856 bytes (62244 KiB, 60 MiB, 494 LEBs)
+UBIFS: journal size:       3225600 bytes (3150 KiB, 3 MiB, 25 LEBs)
+UBIFS: media format:       w4/r0 (latest is w4/r0)
+UBIFS: default compressor: LZO
+UBIFS: reserved for root:  3149978 bytes (3076 KiB)
+Loading file '/boot/bootimage' to addr 0x02000000 with size 11833416 (0x00b49048)...
+Done
+## Booting kernel from Legacy Image at 02000000 ...
+   Image Name:   Linux-3.2.73
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    11833352 Bytes = 11.3 MiB
+   Load Address: 00008000
+   Entry Point:  00008000
+   Verifying Checksum ... OK
+   Loading Kernel Image ... OK
+OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+Initializing cgroup subsys cpu
+Linux version 3.2.73 (tkaule@ber-rd5069) (gcc version 4.6.3 (Buildroot 2013.02) ) #1 Wed Nov 23 15:07:39 CET 2016
+CPU: Feroceon 88FR131 [56251311] revision 1 (ARMv5TE), cr=00053977
+CPU: VIVT data cache, VIVT instruction cache
+Machine: Aastra RFP43
+Memory policy: ECC disabled, Data cache writeback
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 32512
+Kernel command line: console=ttyS0,115200 mtdparts=orion_nand:0x0080000@0x0(uboot),0x0020000@0x80000(uboot-env0),0x0020000@0x00a0000(uboot-env1),0x4000000@0x00100000(ubifs-flash),0x3f00000@0x04100000(ubifs-var) panic=5 rw bi=ubi
+PID hash table entries: 512 (order: -1, 2048 bytes)
+Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+Memory: 128MB = 128MB total
+Memory: 115044k/115044k available, 16028k reserved, 0K highmem
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+    vmalloc : 0xc8800000 - 0xfe800000   ( 864 MB)
+    lowmem  : 0xc0000000 - 0xc8000000   ( 128 MB)
+    modules : 0xbf000000 - 0xc0000000   (  16 MB)
+      .text : 0xc0008000 - 0xc0447000   (4348 kB)
+      .init : 0xc0447000 - 0xc0da2000   (9580 kB)
+      .data : 0xc0da2000 - 0xc0dd0650   ( 186 kB)
+       .bss : 0xc0dd0674 - 0xc0e84ae8   ( 722 kB)
+SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+NR_IRQS:114
+sched_clock: 32 bits at 200MHz, resolution 5ns, wraps every 21474ms
+Console: colour dummy device 80x30
+Calibrating delay loop... 1191.11 BogoMIPS (lpj=5955584)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+Initializing cgroup subsys net_cls
+CPU: Testing write buffer coherency: ok
+ftrace: allocating 13940 entries in 42 pages
+NET: Registered protocol family 16
+Kirkwood: MV88F6281-A1, TCLK=200000000.
+Feroceon L2: Enabling L2
+Feroceon L2: Cache support initialised.
+Kirkwood Boot Rom Result: Reg = 0xaf001000, ErrCode = 0x00, Retry Count = 0.
+Kirkwood NAND Control:  Reg = 0x01c7d943
+         NFActCEnBoot       = 0x01
+         NFActCEn           = 0x00
+         NFIsD              = 0x01
+         NFOEnW             = 0x0c
+         NFTr               = 0x1f
+         NFOEnDel           = 0x00
+         NF_NumAddrPhase    = 0x03
+         NF_Boot_Type       = 0x01
+Kirkwood NAND Read:     Reg = 0x003e07cf
+         TurnOff            = 0x0f
+         Acc2First          = 0x1f
+         Acc2Next           = 0x1f
+Kirkwood NAND Write:    Reg = 0x000f0f0f
+         CEn2WEn            = 0x0f
+         WrLow              = 0x0f
+         WrHigh             = 0x0f
+Kirkwood PCIe port 0:
+link down, ignoring
+bio: create slab <bio-0> at 0
+vgaarb: loaded
+SCSI subsystem initialized
+Switching to clocksource orion_clocksource
+NET: Registered protocol family 2
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+TCP bind hash table entries: 4096 (order: 2, 16384 bytes)
+TCP: Hash tables configured (established 4096 bind 4096)
+TCP reno registered
+UDP hash table entries: 256 (order: 0, 4096 bytes)
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+msgmni has been set to 224
+io scheduler noop registered
+io scheduler deadline registered
+io scheduler cfq registered (default)
+mv_xor_shared mv_xor_shared.0: Marvell shared XOR driver
+mv_xor_shared mv_xor_shared.1: Marvell shared XOR driver
+mv_xor mv_xor.0: Marvell XOR: ( xor cpy )
+mv_xor mv_xor.1: Marvell XOR: ( xor fill cpy )
+mv_xor mv_xor.2: Marvell XOR: ( xor cpy )
+mv_xor mv_xor.3: Marvell XOR: ( xor fill cpy )
+Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+serial8250.0: ttyS0 at MMIO 0xf1012000 (irq = 33) is a 16550A
+console [ttyS0] enabled
+serial8250.1: ttyS1 at MMIO 0xf1012100 (irq = 34) is a 16550A
+loop: module loaded
+ONFI flash detected
+ONFI param page 0 valid
+NAND device: Manufacturer ID: 0x2c, Chip ID: 0xf1 (Micron MT29F1G08ABADAWP)
+NAND device: Nand Flash type = MT29F1G08ABADAWP
+NAND device: Setting OTP functions for MT29F1G08ABADAWP
+Scanning device for bad blocks
+5 cmdlinepart partitions found on MTD device orion_nand
+Creating 5 MTD partitions on "orion_nand":
+0x000000000000-0x000000080000 : "uboot"
+0x000000080000-0x0000000a0000 : "uboot-env0"
+0x0000000a0000-0x0000000c0000 : "uboot-env1"
+0x000000100000-0x000004100000 : "ubifs-flash"
+0x000004100000-0x000008000000 : "ubifs-var"
+mv643xx_eth: MV-643xx 10/100/1000 ethernet driver version 1.4
+mv643xx_eth smi: probed
+mv643xx_eth_port mv643xx_eth_port.0: eth0: port 0 with MAC address 00:30:42:22:79:97
+mv643xx_eth_port mv643xx_eth_port.1: eth1: port 0 with MAC address 02:30:42:4b:49:52
+mousedev: PS/2 mouse device common for all mice
+rtc-mv rtc-mv: rtc core: registered rtc-mv as rtc0
+i2c /dev entries driver
+cpuidle: using governor ladder
+cpuidle: using governor menu
+MV-CESA:Could not register sha1 driver
+MV-CESA:Could not register hmac-sha1 driver
+oprofile: hardware counters not available
+oprofile: using timer interrupt.
+GACT probability on
+Mirror/redirect action on
+Simple TC action Loaded
+netem: version 1.3
+u32 classifier
+    Performance counters on
+    input device check on
+    Actions configured
+TCP cubic registered
+NET: Registered protocol family 17
+8021q: 802.1Q VLAN Support v1.8
+Registering the dns_resolver key type
+rtc-mv rtc-mv: setting system clock to 2001-07-09 10:08:42 UTC (994673322)
+Initializing network drop monitor service
+Freeing init memory: 9580K
+udevd (460): /proc/460/oom_adj is deprecated, please use /proc/460/oom_score_adj instead.
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+orion-ehci orion-ehci.0: Marvell Orion EHCI
+orion-ehci orion-ehci.0: new USB bus registered, assigned bus number 1
+orion-ehci orion-ehci.0: irq 19, io mem 0xf1050000
+orion-ehci orion-ehci.0: USB 2.0 started, EHCI 1.00
+usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb1: Product: Marvell Orion EHCI
+usb usb1: Manufacturer: Linux 3.2.73 ehci_hcd
+usb usb1: SerialNumber: orion-ehci.0
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+UBI: attaching mtd3 to ubi3
+UBI: physical eraseblock size:   131072 bytes (128 KiB)
+UBI: logical eraseblock size:    129024 bytes
+UBI: smallest flash I/O unit:    2048
+UBI: sub-page size:              512
+UBI: VID header offset:          512 (aligned 512)
+UBI: data offset:                2048
+UBI: max. sequence number:       530
+UBI: attached mtd3 to ubi3
+UBI: MTD device name:            "ubifs-flash"
+UBI: MTD device size:            64 MiB
+UBI: number of good PEBs:        512
+UBI: number of bad PEBs:         0
+UBI: number of corrupted PEBs:   0
+UBI: max. allowed volumes:       128
+UBI: wear-leveling threshold:    4096
+UBI: number of internal volumes: 1
+UBI: number of user volumes:     1
+UBI: available PEBs:             0
+UBI: total number of reserved PEBs: 512
+UBI: number of PEBs reserved for bad PEB handling: 5
+UBI: max/mean erase counter: 4/1
+UBI: image sequence number:  680523886
+UBI: background thread "ubi_bgt3d" started, PID 745
+UBIFS: recovery needed
+UBIFS: recovery completed
+UBIFS: mounted UBI device 3, volume 0, name "flash"
+UBIFS: file system size:   63737856 bytes (62244 KiB, 60 MiB, 494 LEBs)
+UBIFS: journal size:       3225600 bytes (3150 KiB, 3 MiB, 25 LEBs)
+UBIFS: media format:       w4/r0 (latest is w4/r0)
+UBIFS: default compressor: lzo
+UBIFS: reserved for root:  3010495 bytes (2939 KiB)
+UBI: attaching mtd4 to ubi4
+UBI: physical eraseblock size:   131072 bytes (128 KiB)
+UBI: logical eraseblock size:    129024 bytes
+UBI: smallest flash I/O unit:    2048
+UBI: sub-page size:              512
+UBI: VID header offset:          512 (aligned 512)
+UBI: data offset:                2048
+UBI: max. sequence number:       2392
+UBI: attached mtd4 to ubi4
+UBI: MTD device name:            "ubifs-var"
+UBI: MTD device size:            63 MiB
+UBI: number of good PEBs:        504
+UBI: number of bad PEBs:         0
+UBI: number of corrupted PEBs:   0
+UBI: max. allowed volumes:       128
+UBI: wear-leveling threshold:    4096
+UBI: number of internal volumes: 1
+UBI: number of user volumes:     1
+UBI: available PEBs:             0
+UBI: total number of reserved PEBs: 504
+UBI: number of PEBs reserved for bad PEB handling: 5
+UBI: max/mean erase counter: 10/5
+UBI: image sequence number:  1289163380
+UBI: background thread "ubi_bgt4d" started, PID 761
+UBIFS: recovery needed
+UBIFS: recovery completed
+UBIFS: mounted UBI device 4, volume 0, name "var"
+UBIFS: file system size:   62705664 bytes (61236 KiB, 59 MiB, 486 LEBs)
+UBIFS: journal size:       3096576 bytes (3024 KiB, 2 MiB, 24 LEBs)
+UBIFS: media format:       w4/r0 (latest is w4/r0)
+UBIFS: default compressor: lzo
+UBIFS: reserved for root:  2961743 bytes (2892 KiB)
+Orion Watchdog Timer: Initial timeout 21 sec, nowayout
+S08SystemUpdate found booter_ver=9 ==>> version is up-to-date
+
+Please press Enter to activate this console.
+
+[root@rfp3g_227997]#
